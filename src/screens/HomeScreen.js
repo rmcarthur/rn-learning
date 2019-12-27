@@ -1,20 +1,22 @@
 import React from 'react';
 import { TouchableOpacity, Text, StyleSheet, View, Button } from 'react-native';
+import { createAppContainer } from 'react-navigation'
+import { createStackNavigator } from 'react-navigation-stack'
 
-const HomeScreen = () => {
+
+const HomeScreen = ({ navigation }) => {
+
   return (
     <View>
       <Text style={styles.text}>Welcome to my home HomeScreen</Text>
       <Button 
         title="Go to Components Demo"
-        onPress={() => console.log('Button Pressed')}
-      />
-      <TouchableOpacity onPress={() => console.log('List Pressed')}>
-        <Text>Go to List Demo</Text>
-      </TouchableOpacity>
-    </View>
-  )
-  //<Text style={styles.text}>Hey it me</Text>;
+        onPress={() => navigation.navigate('Components')}/>
+      <Button onPress={() => navigation.navigate('List')}
+        title="Go to List Demo" />
+      <Button onPress={() => navigation.navigate('Image')}
+        title="Go to Image Demo" />
+    </View>)
 };
 
 const styles = StyleSheet.create({
