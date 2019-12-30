@@ -2,46 +2,39 @@ import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 
 const BoxScreen = () => {
-    return (<View style={styles.viewStyle}>
-        <Text style={styles.text1Style}>Child 1</Text>
-        <Text style={styles.text2Style}>Child 2 </Text>
-        <Text style={styles.text3Style}>Child 3</Text>
+    return (<View style={styles.parentStyle}>
+        <View style={styles.view1Style} />
+        <View style={styles.view2Style} />
+        <View style={styles.view3Style} />
     </View>
     );
 };
 
 const styles = StyleSheet.create({
-    viewStyle: {
+    parentStyle: {
         borderWidth:3,
+        height:206,
         borderColor: 'black',
-        marginVertical: 15,
-        marginHorizontal: 25,
-        alignItems: 'flex-start',
-        // changes how children are aligned
         flexDirection: 'row',
-        // sets direction of children flexing
-        //justifyContent: 'space-around',
-        // sets child justification
-        height: 200,
+        justifyContent: 'space-between',
     },
-    text1Style: {
-        borderWidth:3,
-        borderColor: 'red',
+    view1Style: {
+        backgroundColor: 'red',
+        height: 100,
+        width: 100,
     },
 
-    text2Style: {
-        borderWidth:3,
-        borderColor: 'red',
-        position: 'absolute',
-        fontSize: 18,
-        ...StyleSheet.absoluteFillObject,
+    view2Style: {
+        backgroundColor: 'green',
+        height: 100,
+        width: 100,
+        alignSelf:'flex-end'
 
     },
-
-
-    text3Style: {
-        borderWidth:3,
-        borderColor: 'red',
+    view3Style: {
+        backgroundColor: 'purple',
+        height: 100,
+        width: 100,
     }
 
 
